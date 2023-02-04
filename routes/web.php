@@ -20,10 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/show', [App\Http\Controllers\AdminController::class, 'show'])->name('admin_login');
-Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'login'])->name('admin_login');
+Route::get('/admin/show', [App\Http\Controllers\Auth\AdminController::class, 'show'])->name('admin_show');
+Route::post('/admin/login', [App\Http\Controllers\Auth\AdminController::class, 'login'])->name('admin_login');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
-    Route::get('/admin/index', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-    Route::get('/admin/logout', [App\Http\Controllers\AdminController::class, 'logout'])->name('admin_logout');
+    Route::get('/admin/index', [App\Http\Controllers\Auth\AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/logout', [App\Http\Controllers\Auth\AdminController::class, 'logout'])->name('admin_logout');
 });

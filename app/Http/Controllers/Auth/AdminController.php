@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -20,12 +20,12 @@ class AdminController extends Controller
 
     public function show()
     {
-        return view('admin_login');
+        return view('auth.admin_login');
     }
 
     public function index() 
     {
-        return view('auth.admin');
+        return view('admin');
     }
 
     public function login(Request $request)
@@ -41,7 +41,7 @@ class AdminController extends Controller
 
         if (Auth::Attempt($credentials)) {
 
-            return redirect('admin')
+            return view('admin');
         }
 
         return redirect('admin_login')->with('error', 'email ou mot de passe incorrect');

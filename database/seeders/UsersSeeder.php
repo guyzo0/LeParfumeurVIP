@@ -20,13 +20,6 @@ class UsersSeeder extends Seeder
 
            $users = [
             [
-
-              'name' => 'Admin',
-              'email' => 'admin@gmail.com',
-              'password' => '12345678',
-              'role' => 1,
-            ],
-            [
               'name' => 'User',
               'email' => 'user@gmail.com',
               'password' => '13456',

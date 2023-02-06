@@ -1,4 +1,4 @@
-@extends('layouts.auth-master')
+@extends('layouts.app')
 
 @section('content')
     <form method="post" action="{{ route('admin_login') }}">
